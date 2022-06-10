@@ -28,8 +28,10 @@ model {
 
 generated quantities {  
     vector [N] y_sim;
+    vector [N] log_lik;
 
     for(i in 1:N){
+        log_lik[i] = normal_lpdf(y[i] | alpha + beta_1 * x[i] + beta_2 * x[i]^2 + beta_3 * x[i]^3 + beta_4 * x[i]^4, sigma);
         y_sim[i] = normal_rng(alpha + beta_1 * x[i] + beta_2 * x[i]^2 + beta_3 * x[i]^3 + beta_4 * x[i]^4, sigma);
     }
      

@@ -28,5 +28,7 @@ model {
 }
 
 generated quantities {
+    vector[N] log_lik;
+    log_lik[N] = normal_lpdf(y | f, sigma);
     real y_sim[N] = normal_rng(f, sigma);
 }
