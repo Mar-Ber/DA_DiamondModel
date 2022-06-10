@@ -1,18 +1,18 @@
 data {
-    int<lower = 1> N_obs;
-    real x_obs[N_obs];
-    vector[N_obs] y_obs;
+    int<lower = 1> N;
+    real x[N];
+    vector[N] y;
 }
 
 parameters {
-    real<lower = 0> rho;
-    real<lower= 0> alpha;
-    real<lower = 0> sigma;
+    real<lower=0> rho;
+    real<lower=0> alpha;
+    real<lower=0> sigma;
 }
 
 model {
-    matrix[N_obs, N_obs] cov = cov_exp_quad(x_obs, alpha, rho) + diag_matrix(rep_vector(square(sigma), N_obs));
-    matrix[N_obs, N_obs] L_cov = cholesky_decompose(cov);
+    matrix[N, N] cov = cov_exp_quad(x, alpha, rho) + diag_matrix(rep_vector(square(sigma), N));
+    matrix[N, N] L_cov = cholesky_decompose(cov);
     
-    y_obs ~ multi_normal_cholesky(rep_vector(0, N_obs), L_cov);
+    y ~ multi_normal_cholesky(rep_vector(0, N), L_cov);
 }

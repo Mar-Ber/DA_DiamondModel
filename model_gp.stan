@@ -1,10 +1,8 @@
 data {
-    int<lower=1> N_predict;
-    real x_predict[N_predict];
-
-    int<lower=1> N_obs;
-    real y_obs[N_obs];
-    int<lower=1, upper=N_predict> observed_idx[N_obs];
+    int<lower=1> N;
+    real x[N];
+    real y[N];
+    int<lower=1, upper=N> idx[N];
     
     real<lower=0> rho;
     real<lower=0> alpha;
@@ -12,23 +10,23 @@ data {
 }
 
 transformed data {
-    matrix[N_predict, N_predict] cov = cov_exp_quad(x_predict, alpha, rho) + diag_matrix(rep_vector(1e-10, N_predict));
-    matrix[N_predict, N_predict] L_cov = cholesky_decompose(cov);
+    matrix[N, N] cov = cov_exp_quad(x, alpha, rho) + diag_matrix(rep_vector(1e-10, N));
+    matrix[N, N] L_cov = cholesky_decompose(cov);
 }
 
 parameters {
-    vector[N_predict] f_tilde;
+    vector[N] f_t;
 }
 
 transformed parameters {
-    vector[N_predict] f_predict = L_cov * f_tilde;
+    vector[N] f = L_cov * f_t;
 }
 
 model {
-    f_tilde ~ normal(0,1);
-    y_obs ~ normal(f_predict[observed_idx], sigma);
+    f_t ~ normal(0,1);
+    y ~ normal(f[idx], sigma);
 }
 
 generated quantities {
-    real y_predict[N_predict] = normal_rng(f_predict, sigma);
+    real y_sim[N] = normal_rng(f, sigma);
 }

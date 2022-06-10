@@ -6,31 +6,31 @@ data {
  
 parameters { 
     real alpha; 
-    real beta;
-    real gamma; 
-    real delta;
-    real eps;
+    real beta_1;
+    real beta_2; 
+    real beta_3;
+    real beta_4;
     real <lower = 0> sigma; 
 } 
  
 model { 
     // Priors 
     alpha ~ normal(600, 20); 
-    beta ~ normal(-4000, 50);
-    gamma ~ normal(13000, 50);
-    delta ~ normal(-4800, 50);
-    eps ~ normal(500, 20);
+    beta_1 ~ normal(-4000, 50);
+    beta_2 ~ normal(13000, 50);
+    beta_3 ~ normal(-4800, 50);
+    beta_4 ~ normal(500, 20);
     sigma ~ normal(200, 10);
 
     // Linear regression model 
-    y ~ normal(alpha + beta * x + gamma * x^2 + delta * x^3 + eps * x^4, sigma); 
+    y ~ normal(alpha + beta_1 * x + beta_2 * x^2 + beta_3 * x^3 + beta_4 * x^4, sigma); 
 } 
 
 generated quantities {  
     vector [N] y_sim;
 
     for(i in 1:N){
-        y_sim[i] = normal_rng(alpha + beta * x[i] + gamma * x[i]^2 + delta * x[i]^3 + eps * x[i]^4, sigma);
+        y_sim[i] = normal_rng(alpha + beta_1 * x[i] + beta_2 * x[i]^2 + beta_3 * x[i]^3 + beta_4 * x[i]^4, sigma);
     }
      
 }
