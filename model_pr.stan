@@ -15,12 +15,12 @@ parameters {
  
 model { 
     // Priors 
-    alpha ~ normal(600, 20); 
-    beta_1 ~ normal(-4000, 50);
-    beta_2 ~ normal(13000, 50);
-    beta_3 ~ normal(-4800, 50);
-    beta_4 ~ normal(500, 20);
-    sigma ~ normal(200, 10);
+    alpha ~ normal(610, 5); 
+    beta_1 ~ normal(-4000, 5);
+    beta_2 ~ normal(12750, 5);
+    beta_3 ~ normal(-4800, 5);
+    beta_4 ~ normal(510, 5);
+    sigma ~ exponential(5);
 
     // Linear regression model 
     y ~ normal(alpha + beta_1 * x + beta_2 * x^2 + beta_3 * x^3 + beta_4 * x^4, sigma); 
