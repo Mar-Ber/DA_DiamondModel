@@ -17,7 +17,7 @@ model {
     sigma ~ exponential(5);
 
     // Linear regression model 
-    y ~ normal(alpha + beta * x, sigma); 
+    y ~ normal(alpha + beta * x, x^1.5 * sigma); 
 } 
 
 generated quantities {  
@@ -25,8 +25,8 @@ generated quantities {
     vector [N] log_lik;
 
     for(i in 1:N){
-        log_lik[i] = normal_lpdf(y[i] | alpha + beta * x[i], sigma);
-        y_sim[i] = normal_rng(alpha + beta * x[i], sigma);
+        log_lik[i] = normal_lpdf(y[i] | alpha + beta * x[i], x[i]^1.5 * sigma);
+        y_sim[i] = normal_rng(alpha + beta * x[i], x[i]^1.5 * sigma);
     }
      
 }

@@ -23,7 +23,7 @@ model {
     sigma ~ exponential(5);
 
     // Linear regression model 
-    y ~ normal(alpha + beta_1 * x + beta_2 * x^2 + beta_3 * x^3 + beta_4 * x^4, sigma); 
+    y ~ normal(alpha + beta_1 * x + beta_2 * x^2 + beta_3 * x^3 + beta_4 * x^4, x^1.5*sigma); 
 } 
 
 generated quantities {  
@@ -31,8 +31,8 @@ generated quantities {
     vector [N] log_lik;
 
     for(i in 1:N){
-        log_lik[i] = normal_lpdf(y[i] | alpha + beta_1 * x[i] + beta_2 * x[i]^2 + beta_3 * x[i]^3 + beta_4 * x[i]^4, sigma);
-        y_sim[i] = normal_rng(alpha + beta_1 * x[i] + beta_2 * x[i]^2 + beta_3 * x[i]^3 + beta_4 * x[i]^4, sigma);
+        log_lik[i] = normal_lpdf(y[i] | alpha + beta_1 * x[i] + beta_2 * x[i]^2 + beta_3 * x[i]^3 + beta_4 * x[i]^4, x[i]^1.5*sigma);
+        y_sim[i] = normal_rng(alpha + beta_1 * x[i] + beta_2 * x[i]^2 + beta_3 * x[i]^3 + beta_4 * x[i]^4, x[i]^1.5*sigma);
     }
      
 }

@@ -18,17 +18,17 @@ static constexpr std::array<const char*, 27> locations_array__ =
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 13, column 4 to column 27)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 30, column 4 to column 21)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 31, column 4 to column 23)",
- " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 34, column 8 to column 124)",
- " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 35, column 8 to column 114)",
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 34, column 8 to column 133)",
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 35, column 8 to column 123)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 33, column 17 to line 36, column 5)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 33, column 4 to line 36, column 5)",
- " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 18, column 4 to column 28)",
- " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 19, column 4 to column 31)",
- " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 20, column 4 to column 31)",
- " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 21, column 4 to column 31)",
- " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 22, column 4 to column 29)",
- " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 23, column 4 to column 28)",
- " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 26, column 4 to column 87)",
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 18, column 4 to column 27)",
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 19, column 4 to column 30)",
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 20, column 4 to column 30)",
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 21, column 4 to column 30)",
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 22, column 4 to column 28)",
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 23, column 4 to column 27)",
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 26, column 4 to column 93)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 2, column 4 to column 22)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 3, column 12 to column 13)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_pr.stan', line 3, column 4 to column 17)",
@@ -184,17 +184,17 @@ class model_pr_model final : public model_base_crtp<model_pr_model> {
                 0, lp__);
       {
         current_statement__ = 13;
-        lp_accum__.add(stan::math::normal_lpdf<propto__>(alpha, 600, 20));
+        lp_accum__.add(stan::math::normal_lpdf<propto__>(alpha, 610, 5));
         current_statement__ = 14;
-        lp_accum__.add(stan::math::normal_lpdf<propto__>(beta_1, -4000, 50));
+        lp_accum__.add(stan::math::normal_lpdf<propto__>(beta_1, -4000, 5));
         current_statement__ = 15;
-        lp_accum__.add(stan::math::normal_lpdf<propto__>(beta_2, 13000, 50));
+        lp_accum__.add(stan::math::normal_lpdf<propto__>(beta_2, 12750, 5));
         current_statement__ = 16;
-        lp_accum__.add(stan::math::normal_lpdf<propto__>(beta_3, -4800, 50));
+        lp_accum__.add(stan::math::normal_lpdf<propto__>(beta_3, -4800, 5));
         current_statement__ = 17;
-        lp_accum__.add(stan::math::normal_lpdf<propto__>(beta_4, 500, 20));
+        lp_accum__.add(stan::math::normal_lpdf<propto__>(beta_4, 510, 5));
         current_statement__ = 18;
-        lp_accum__.add(stan::math::normal_lpdf<propto__>(sigma, 200, 10));
+        lp_accum__.add(stan::math::exponential_lpdf<propto__>(sigma, 5));
         current_statement__ = 19;
         lp_accum__.add(
           stan::math::normal_lpdf<propto__>(y,
@@ -204,7 +204,8 @@ class model_pr_model final : public model_base_crtp<model_pr_model> {
                   stan::math::add(alpha, stan::math::multiply(beta_1, x)),
                   stan::math::multiply(beta_2, stan::math::pow(x, 2))),
                 stan::math::multiply(beta_3, stan::math::pow(x, 3))),
-              stan::math::multiply(beta_4, stan::math::pow(x, 4))), sigma));
+              stan::math::multiply(beta_4, stan::math::pow(x, 4))),
+            stan::math::multiply(stan::math::pow(x, 1.5), sigma)));
       }
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -297,7 +298,10 @@ class model_pr_model final : public model_base_crtp<model_pr_model> {
               (beta_4 *
                 stan::math::pow(
                   stan::model::rvalue(x, "x", stan::model::index_uni(i)), 4))),
-            sigma), "assigning variable log_lik", stan::model::index_uni(i));
+            (stan::math::pow(
+               stan::model::rvalue(x, "x", stan::model::index_uni(i)), 1.5) *
+              sigma)),
+          "assigning variable log_lik", stan::model::index_uni(i));
         current_statement__ = 10;
         stan::model::assign(y_sim,
           stan::math::normal_rng(
@@ -315,7 +319,9 @@ class model_pr_model final : public model_base_crtp<model_pr_model> {
               (beta_4 *
                 stan::math::pow(
                   stan::model::rvalue(x, "x", stan::model::index_uni(i)), 4))),
-            sigma, base_rng__),
+            (stan::math::pow(
+               stan::model::rvalue(x, "x", stan::model::index_uni(i)), 1.5) *
+              sigma), base_rng__),
           "assigning variable y_sim", stan::model::index_uni(i));
       }
       out__.write(y_sim);

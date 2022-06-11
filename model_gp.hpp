@@ -8,13 +8,16 @@ using namespace stan::math;
 
 
 stan::math::profile_map profiles__;
-static constexpr std::array<const char*, 28> locations_array__ = 
+static constexpr std::array<const char*, 31> locations_array__ = 
 {" (found before start of program)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 18, column 4 to column 18)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 22, column 4 to column 30)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 31, column 4 to column 22)",
- " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 32, column 4 to column 43)",
- " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 33, column 4 to column 41)",
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 32, column 4 to column 20)",
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 34, column 8 to column 53)",
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 35, column 8 to column 43)",
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 33, column 18 to line 36, column 5)",
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 33, column 4 to line 36, column 5)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 26, column 4 to column 22)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 27, column 4 to column 30)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 2, column 4 to column 19)",
@@ -36,7 +39,7 @@ static constexpr std::array<const char*, 28> locations_array__ =
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 18, column 11 to column 12)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 22, column 11 to column 12)",
  " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 31, column 11 to column 12)",
- " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 33, column 15 to column 16)"};
+ " (in 'C:/Users/JAKUBB~1/DOCUME~1/PYCHAR~1/DA_DIA~1/model_gp.stan', line 32, column 11 to column 12)"};
 
 
 
@@ -81,117 +84,117 @@ class model_gp_model final : public model_base_crtp<model_gp_model> {
     try {
       int pos__ = std::numeric_limits<int>::min();
       pos__ = 1;
-      current_statement__ = 8;
+      current_statement__ = 11;
       context__.validate_dims("data initialization","N","int",
            std::vector<size_t>{});
       N = std::numeric_limits<int>::min();
       
       
-      current_statement__ = 8;
+      current_statement__ = 11;
       N = context__.vals_i("N")[(1 - 1)];
-      current_statement__ = 8;
+      current_statement__ = 11;
       stan::math::check_greater_or_equal(function__, "N", N, 1);
-      current_statement__ = 9;
+      current_statement__ = 12;
       stan::math::validate_non_negative_index("x", "N", N);
-      current_statement__ = 10;
+      current_statement__ = 13;
       context__.validate_dims("data initialization","x","double",
            std::vector<size_t>{static_cast<size_t>(N)});
       x = std::vector<double>(N, std::numeric_limits<double>::quiet_NaN());
       
       
-      current_statement__ = 10;
+      current_statement__ = 13;
       x = context__.vals_r("x");
-      current_statement__ = 11;
+      current_statement__ = 14;
       stan::math::validate_non_negative_index("y", "N", N);
-      current_statement__ = 12;
+      current_statement__ = 15;
       context__.validate_dims("data initialization","y","double",
            std::vector<size_t>{static_cast<size_t>(N)});
       y = std::vector<double>(N, std::numeric_limits<double>::quiet_NaN());
       
       
-      current_statement__ = 12;
+      current_statement__ = 15;
       y = context__.vals_r("y");
-      current_statement__ = 13;
+      current_statement__ = 16;
       stan::math::validate_non_negative_index("idx", "N", N);
-      current_statement__ = 14;
+      current_statement__ = 17;
       context__.validate_dims("data initialization","idx","int",
            std::vector<size_t>{static_cast<size_t>(N)});
       idx = std::vector<int>(N, std::numeric_limits<int>::min());
       
       
-      current_statement__ = 14;
+      current_statement__ = 17;
       idx = context__.vals_i("idx");
-      current_statement__ = 14;
+      current_statement__ = 17;
       stan::math::check_greater_or_equal(function__, "idx", idx, 1);
-      current_statement__ = 14;
+      current_statement__ = 17;
       stan::math::check_less_or_equal(function__, "idx", idx, N);
-      current_statement__ = 15;
+      current_statement__ = 18;
       context__.validate_dims("data initialization","rho","double",
            std::vector<size_t>{});
       rho = std::numeric_limits<double>::quiet_NaN();
       
       
-      current_statement__ = 15;
+      current_statement__ = 18;
       rho = context__.vals_r("rho")[(1 - 1)];
-      current_statement__ = 15;
+      current_statement__ = 18;
       stan::math::check_greater_or_equal(function__, "rho", rho, 0);
-      current_statement__ = 16;
+      current_statement__ = 19;
       context__.validate_dims("data initialization","alpha","double",
            std::vector<size_t>{});
       alpha = std::numeric_limits<double>::quiet_NaN();
       
       
-      current_statement__ = 16;
+      current_statement__ = 19;
       alpha = context__.vals_r("alpha")[(1 - 1)];
-      current_statement__ = 16;
+      current_statement__ = 19;
       stan::math::check_greater_or_equal(function__, "alpha", alpha, 0);
-      current_statement__ = 17;
+      current_statement__ = 20;
       context__.validate_dims("data initialization","sigma","double",
            std::vector<size_t>{});
       sigma = std::numeric_limits<double>::quiet_NaN();
       
       
-      current_statement__ = 17;
-      sigma = context__.vals_r("sigma")[(1 - 1)];
-      current_statement__ = 17;
-      stan::math::check_greater_or_equal(function__, "sigma", sigma, 0);
-      current_statement__ = 18;
-      stan::math::validate_non_negative_index("cov", "N", N);
-      current_statement__ = 19;
-      stan::math::validate_non_negative_index("cov", "N", N);
       current_statement__ = 20;
+      sigma = context__.vals_r("sigma")[(1 - 1)];
+      current_statement__ = 20;
+      stan::math::check_greater_or_equal(function__, "sigma", sigma, 0);
+      current_statement__ = 21;
+      stan::math::validate_non_negative_index("cov", "N", N);
+      current_statement__ = 22;
+      stan::math::validate_non_negative_index("cov", "N", N);
+      current_statement__ = 23;
       cov__ = 
         Eigen::Matrix<double, -1, -1>::Constant(N, N,
           std::numeric_limits<double>::quiet_NaN());
       new (&cov) Eigen::Map<Eigen::Matrix<double, -1, -1>>(cov__.data(), N, N);
         
       
-      current_statement__ = 20;
+      current_statement__ = 23;
       stan::model::assign(cov,
         stan::math::add(stan::math::cov_exp_quad(x, alpha, rho),
           stan::math::diag_matrix(stan::math::rep_vector(1e-10, N))),
         "assigning variable cov");
-      current_statement__ = 21;
+      current_statement__ = 24;
       stan::math::validate_non_negative_index("L_cov", "N", N);
-      current_statement__ = 22;
+      current_statement__ = 25;
       stan::math::validate_non_negative_index("L_cov", "N", N);
-      current_statement__ = 23;
+      current_statement__ = 26;
       L_cov__ = 
         Eigen::Matrix<double, -1, -1>::Constant(N, N,
           std::numeric_limits<double>::quiet_NaN());
       new (&L_cov) Eigen::Map<Eigen::Matrix<double, -1, -1>>(L_cov__.data(), N, N);
         
       
-      current_statement__ = 23;
+      current_statement__ = 26;
       stan::model::assign(L_cov, stan::math::cholesky_decompose(cov),
         "assigning variable L_cov");
-      current_statement__ = 24;
-      stan::math::validate_non_negative_index("f_t", "N", N);
-      current_statement__ = 25;
-      stan::math::validate_non_negative_index("f", "N", N);
-      current_statement__ = 26;
-      stan::math::validate_non_negative_index("log_lik", "N", N);
       current_statement__ = 27;
+      stan::math::validate_non_negative_index("f_t", "N", N);
+      current_statement__ = 28;
+      stan::math::validate_non_negative_index("f", "N", N);
+      current_statement__ = 29;
+      stan::math::validate_non_negative_index("log_lik", "N", N);
+      current_statement__ = 30;
       stan::math::validate_non_negative_index("y_sim", "N", N);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -228,9 +231,9 @@ class model_gp_model final : public model_base_crtp<model_gp_model> {
       stan::model::assign(f, stan::math::multiply(L_cov, f_t),
         "assigning variable f");
       {
-        current_statement__ = 6;
+        current_statement__ = 9;
         lp_accum__.add(stan::math::normal_lpdf<propto__>(f_t, 0, 1));
-        current_statement__ = 7;
+        current_statement__ = 10;
         lp_accum__.add(
           stan::math::normal_lpdf<propto__>(y,
             stan::model::rvalue(f, "f", stan::model::index_multi(idx)),
@@ -294,16 +297,24 @@ class model_gp_model final : public model_base_crtp<model_gp_model> {
       Eigen::Matrix<double, -1, 1> log_lik =
          Eigen::Matrix<double, -1, 1>::Constant(N,
            std::numeric_limits<double>::quiet_NaN());
-      current_statement__ = 4;
-      stan::model::assign(log_lik,
-        stan::math::normal_lpdf<false>(y, f, sigma),
-        "assigning variable log_lik", stan::model::index_uni(N));
-      std::vector<double> y_sim =
-         std::vector<double>(N, std::numeric_limits<double>::quiet_NaN());
-      current_statement__ = 5;
-      stan::model::assign(y_sim,
-        stan::math::normal_rng(f, sigma, base_rng__),
-        "assigning variable y_sim");
+      Eigen::Matrix<double, -1, 1> y_sim =
+         Eigen::Matrix<double, -1, 1>::Constant(N,
+           std::numeric_limits<double>::quiet_NaN());
+      current_statement__ = 8;
+      for (int i = 1; i <= N; ++i) {
+        current_statement__ = 5;
+        stan::model::assign(log_lik,
+          stan::math::normal_lpdf<false>(
+            stan::model::rvalue(y, "y", stan::model::index_uni(i)),
+            stan::model::rvalue(f, "f", stan::model::index_uni(i)), sigma),
+          "assigning variable log_lik", stan::model::index_uni(i));
+        current_statement__ = 6;
+        stan::model::assign(y_sim,
+          stan::math::normal_rng(
+            stan::model::rvalue(f, "f", stan::model::index_uni(i)), sigma,
+            base_rng__),
+          "assigning variable y_sim", stan::model::index_uni(i));
+      }
       out__.write(log_lik);
       out__.write(y_sim);
     } catch (const std::exception& e) {
@@ -425,13 +436,13 @@ class model_gp_model final : public model_base_crtp<model_gp_model> {
     
   inline std::string get_constrained_sizedtypes() const {
     
-    return std::string("[{\"name\":\"f_t\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"parameters\"},{\"name\":\"f\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"transformed_parameters\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"generated_quantities\"},{\"name\":\"y_sim\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(N) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"}]");
+    return std::string("[{\"name\":\"f_t\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"parameters\"},{\"name\":\"f\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"transformed_parameters\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"generated_quantities\"},{\"name\":\"y_sim\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"generated_quantities\"}]");
     
     } // get_constrained_sizedtypes() 
     
   inline std::string get_unconstrained_sizedtypes() const {
     
-    return std::string("[{\"name\":\"f_t\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"parameters\"},{\"name\":\"f\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"transformed_parameters\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"generated_quantities\"},{\"name\":\"y_sim\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(N) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"}]");
+    return std::string("[{\"name\":\"f_t\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"parameters\"},{\"name\":\"f\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"transformed_parameters\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"generated_quantities\"},{\"name\":\"y_sim\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(N) + "},\"block\":\"generated_quantities\"}]");
     
     } // get_unconstrained_sizedtypes() 
     
