@@ -18,8 +18,8 @@ transformed parameters {
 }
 
 model { 
-    alpha ~ normal(200, 20); 
-    beta ~ normal(5600, 50); 
+    alpha ~ normal(200, 5); 
+    beta ~ normal(5600, 5); 
     sigma ~ exponential(5);
     price ~ normal(mu, sigma); 
 } 
