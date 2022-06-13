@@ -21,11 +21,11 @@ transformed parameters {
 }
 
 model { 
-    alpha ~ normal(610, 5); 
-    beta_1 ~ normal(-4000, 5);
-    beta_2 ~ normal(12750, 5);
-    beta_3 ~ normal(-4800, 5);
-    beta_4 ~ normal(510, 5);
+    alpha ~ normal(617, 5); 
+    beta_1 ~ normal(-3957, 5);
+    beta_2 ~ normal(12740, 5);
+    beta_3 ~ normal(-4797, 5);
+    beta_4 ~ normal(515, 5);
     sigma ~ exponential(5);
 
     price ~ normal(mu, sigma); 
