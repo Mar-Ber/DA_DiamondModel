@@ -15,6 +15,6 @@ model {
 generated quantities {
     real price [n];
     for (i in 1:n) {
-        price[i] = normal_rng(alpha + X * beta, sigma);
+        price[i] = normal_rng(alpha + X[i] * beta, sigma);
     }
 }
