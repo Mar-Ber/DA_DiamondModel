@@ -1,36 +1,41 @@
-data { 
-    int <lower = 0> N; 
-    vector [N] carat;
-    vector [N] price; 
-} 
- 
-parameters { 
-    real alpha; 
-    real beta; 
-    real <lower = 0> sigma; 
-} 
+data {
+    int N;
+    vector[N] c_carat;
+    array [N] int <lower=1, upper=5> cut;
+    array [N] int <lower=1, upper=8> clarity;
+    vector[N] price;
+}
+
+parameters {
+    vector[5] alpha_cut;
+    vector[8] alpha_clarity;
+    vector[5] beta_cut;
+    vector[8] beta_clarity;
+    real <lower=0> sigma;
+}
 
 transformed parameters {
-    vector[N] mu;
-    for (i in 1:N) {
-        mu[i] = alpha + beta * carat[i];
+    array [N] real mu;
+    for (i in 1:N){
+        mu[i] = alpha_cut[cut[i]] + alpha_clarity[clarity[i]] + (beta_cut[cut[i]] + beta_clarity[clarity[i]]) * c_carat[i];
+    } 
+}
+
+model {
+    alpha_cut ~ normal(0,10);
+    alpha_clarity ~ normal(0,10);
+    beta_cut ~ normal(0,10);
+    beta_clarity ~ normal(0,10);
+    sigma ~ normal(0,10);
+
+    for (i in 1:N){
+        price[i] ~ normal(mu[i], sigma);
     }
 }
 
-model { 
-    alpha ~ normal(-1500, 100); 
-    beta ~ normal(7000, 1000); 
-    sigma ~ exponential(5);
-    price ~ normal(mu, sigma); 
-} 
-
-generated quantities {  
-    vector [N] price_sim;
-    vector [N] log_lik;
-
-    for(i in 1:N){
-        log_lik[i] = normal_lpdf(price[i] | mu[i], sigma);
+generated quantities {
+    real price_sim [N];
+    for (i in 1:N){
         price_sim[i] = normal_rng(mu[i], sigma);
     }
-     
 }
