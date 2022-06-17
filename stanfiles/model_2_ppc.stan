@@ -9,15 +9,15 @@ generated quantities {
     vector[5] alpha_cut;
     vector[5] beta_cut;
     for (i in 1:5){
-        alpha_cut[i] = normal_rng(0,10);
-        beta_cut[i] = normal_rng(0,100);
+        alpha_cut[i] = normal_rng(-1000,10);
+        beta_cut[i] = normal_rng(500,100);
     }
 
     vector[8] alpha_clarity;
     vector[8] beta_clarity;
     for (i in 1:8){   
         alpha_clarity[i] = normal_rng(-1000,10);
-        beta_clarity[i] = normal_rng(8000,1800);
+        beta_clarity[i] = normal_rng(10000,2000);
     }
 
     real sigma = exponential_rng(10);

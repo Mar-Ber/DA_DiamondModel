@@ -22,10 +22,10 @@ transformed parameters {
 }
 
 model {
-    alpha_cut ~ normal(0,10);
+    alpha_cut ~ normal(-1000,10);
     alpha_clarity ~ normal(-1000,10);
-    beta_cut ~ normal(0,100);
-    beta_clarity ~ normal(8000,1800);
+    beta_cut ~ normal(1000,100);
+    beta_clarity ~ normal(10000,2000);
     sigma ~ exponential(10);
 
     for (i in 1:N){
