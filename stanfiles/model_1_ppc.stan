@@ -8,11 +8,11 @@ generated quantities {
     vector[5] alpha_cut;
     vector[5] beta_cut;
     for (i in 1:5){
-        alpha_cut[i] = normal_rng(0,100);
-        beta_cut[i] = normal_rng(10000,10000);
+        alpha_cut[i] = normal_rng(0,10);
+        beta_cut[i] = normal_rng(0,100);
     }
 
-    real sigma = normal_rng(0,1);
+    real sigma = normal_rng(0,10);
 
     vector[N] price;
     for (i in 1:N){
