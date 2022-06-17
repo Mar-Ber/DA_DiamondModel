@@ -1,13 +1,13 @@
 data {
     int N;
     vector[N] carat;
-    array [N] int <lower=1, upper=5> cut;
+    array [N] int <lower=1, upper=8> cut;
 }
 
 generated quantities {
-    vector[5] alpha_cut;
-    vector[5] beta_cut;
-    for (i in 1:5){
+    vector[8] alpha_cut;
+    vector[8] beta_cut;
+    for (i in 1:8){
         alpha_cut[i] = normal_rng(-1000,10);
         beta_cut[i] = normal_rng(8000,1800);
     }

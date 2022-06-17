@@ -1,13 +1,13 @@
 data {
     int N;
     vector[N] carat;
-    array [N] int <lower=1, upper=5> cut;
+    array [N] int <lower=1, upper=8> cut;
     vector[N] price;
 }
 
 parameters {
-    vector[5] alpha_cut;
-    vector[5] beta_cut;
+    vector[8] alpha_cut;
+    vector[8] beta_cut;
     real <lower=0> sigma;
 }
 
