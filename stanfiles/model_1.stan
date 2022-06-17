@@ -19,9 +19,9 @@ transformed parameters {
 }
 
 model {
-    alpha_cut ~ normal(-100,100);
-    beta_cut ~ normal(0,100);
-    sigma ~ normal(0,1);
+    alpha_cut ~ normal(-1000,10);
+    beta_cut ~ normal(8000,1800);
+    sigma ~ exponential(10);
 
     for (i in 1:N){
         price[i] ~ normal(mu[i], sigma);
